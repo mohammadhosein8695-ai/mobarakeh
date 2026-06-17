@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>مدیریت گالری</title>
+    <style>
+        body { font-family: Tahoma, sans-serif; background: #eef2f3; padding: 40px; }
+        .admin-box { max-width: 500px; background: white; margin: 0 auto; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input[type="text"], input[type="password"], textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { background: #2980b9; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; width: 100%; }
+        button:hover { background: #2471a3; }
+        #uploadSection { display: none; }
+    </style>
+</head>
+<body>
+
+<div class="admin-box">
+    <div id="loginSection">
+        <h2>ورود به پنل مدیریت</h2>
+        <div class="form-group">
+            <label>رمز عبور مدیر:</label>
+            <input type="password" id="adminPassword" placeholder="رمز عبور را وارد کنید">
+        </div>
+        <button onclick="checkPassword()">ورود</button>
+    </div>
+
+    <div id="uploadSection">
+        <h2>افزودن عکس و توضیحات جدید</h2>
+        <div class="form-group">
+            <label>لینک عکس (URL):</label>
+            <input type="text" id="imgUrl" placeholder="https://example.com/image.jpg">
+        </div>
+        <div class="form-group">
+            <label>عنوان:</label>
+            <input type="text" id="imgTitle">
+        </div>
+        <div class="form-group">
+            <label>توضیحات:</label>
+            <textarea id="imgDesc" rows="4"></textarea>
+        </div>
+        <button onclick="addNewCard()">انتشار در سایت</button>
+    </div>
+</div>
+
+<script>
+    // رمز عبور پیش‌فرض شما (می‌توانی تغییرش دهی)
+    const CORRECT_PASSWORD = "mySecretPassword123";
+
+    function checkPassword() {
+        const pass = document.getElementById('adminPassword').value;
+        if(pass === CORRECT_PASSWORD) {
+            document.getElementById('loginSection').style.display = 'none';
+            document.getElementById('uploadSection').style.display = 'block';
+        } else {
+            alert('رمز عبور اشتباه است!');
+        }
+    }
+
+    function addNewCard() {
+        // در دنیای واقعی، اینجا اطلاعات به دیتابیس فرستاده می‌شود.
+        alert('عکس جدید با موفقیت ثبت شد و در سایت قرار گرفت!');
+        window.location.href = 'index.html';
+    }
+</script>
+</body>
+</html>
